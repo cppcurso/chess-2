@@ -4,7 +4,9 @@
 
 using namespace std;
 
+
 string Piece::getColour(){
+  bool black;
   string colour;
   if (black=true){
     colour="negro";
@@ -15,10 +17,26 @@ string Piece::getColour(){
 }
 
 string Piece::getName(){
+  string p = "pawn";
+  string k = "king";
+  string q = "queen";
+  string b = "bishop";
+  string t = "tower";
+  string h = "horse";
+
+}
+
+void move(x,y){
+  int x;
+  int y;
   
 }
 
-bool Piece::valid(){
-  bool check=true;
-  return check;
+// bool Piece::valid(x, y){
+//   bool check=true;
+//   return check;
+// }
+int main()
+{
+
 }
