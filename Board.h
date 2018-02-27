@@ -1,11 +1,23 @@
+#ifndef SRC_CLASSGAME_BOARD_H_
+#define SRC_CLASSGAME_BOARD_H_
 #include <iostream>
-#include <array>
+#include "Cell.h"
 
 class Board {
-    Piece* board[8][8];
+	Board() {
+		for (int i = 0; i < dimension; ++i) {
+			for (int j = 0; j < dimension; ++j) {
+				cells[i][j] = new Cell(i, j);
+			}
+		}
+	}
+	static Board* aBoard;
+	static const int dimension = 8;
+	Cell* cells[dimension][dimension];
 public:
-    void init();
-    bool valid( int x, int y, Piece piece);
-    void move(int x, int y, Piece piece);
-    void print();
+	static Board* getBoard(); //Devuelve el tablero
+	void printBoard();
+
 };
+
+#endif /* SRC_CLASSGAME_BOARD_H_ */
