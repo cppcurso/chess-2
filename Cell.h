@@ -12,10 +12,11 @@ public:
 		int getY() const;
 		bool isOccupied();
 		Piece* occupiedBy();
-		friend std::ostream& operator<<(std::ostream &os, const Cell& c) {
-		os << c.x << c.y;
-		return os;
-		}
+		// friend std::ostream& operator<<(std::ostream &os, const Cell& c) {
+		// os << c.x << c.y;
+		// return os;
+		// }
+		void printCell();
 };
 
 #endif /* SRC_CLASSGAME_CELL_H_ */

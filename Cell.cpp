@@ -13,9 +13,19 @@ void Cell::setPiece(Piece* p) {
 }
 
 bool Cell::isOccupied() {
-	return piece;
+		if (piece == nullptr) {
+			return false;
+		} else {
+			return true;
+		}
 }
 
 Piece* Cell::occupiedBy() {
 	return piece;
+}
+
+void Cell::printCell() {
+		if (isOccupied() == false) {
+			std::cout << "0" << std::endl;
+		}
 }
