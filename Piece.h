@@ -16,11 +16,11 @@ public:
   	bool isBlack();
   	char getFigure() const;
   	virtual void setCell(const Cell*& cell);
-  	virtual void printPiece() const = 0;
+  	void printPiece() const;
     string getColor();
     string getName();
     virtual void move(int x, int y);
-    virtual bool valid()=0;
+    virtual bool valid() = 0;
     void setCell(Cell* c);
     Cell* location();
     bool isOnCell();

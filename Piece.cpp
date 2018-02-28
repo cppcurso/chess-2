@@ -39,3 +39,11 @@ Cell* Piece::location() {
 bool Piece::isOnCell() {
 	return cell;
 }
+
+void Piece::printPiece() const {
+		if (black == true) {
+			std::cout << toupper(figure) << " ";
+		} else {
+			std::cout << tolower(figure) << " ";
+		}
+}
