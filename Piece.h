@@ -1,8 +1,11 @@
 #include <iostream>
-
+#include <string>
+#include "Cell.h"
+#include "Board.h"
 using namespace std;
 
 class Piece {
+    string name;
     Cell* cell;
     bool black;
     char figure;
@@ -14,9 +17,9 @@ public:
   string getColour();
   string getName();
 
-  void move();
-  bool valid();
+  bool isBlack();
+  void move(int x, int y);
+  virtual bool valid()=0;
   void setCell(Cell* c);
-  Cell* location();
 
 };
