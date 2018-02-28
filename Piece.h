@@ -8,8 +8,7 @@ class Piece {
     char figure;
 public:
 
-  Piece();
-  Piece(char figure, bool black);
+  Piece(char figure, bool black, Cell* cell = nullptr):figure(figure),black(black);
 
   string getColour();
   string getName();
