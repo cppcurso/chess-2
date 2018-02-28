@@ -23,7 +23,6 @@ string Piece::getName(){
   string b = "bishop";
   string t = "tower";
   string h = "horse";
-
 }
 
 void Piece::move(x,y){
