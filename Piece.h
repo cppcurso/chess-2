@@ -3,7 +3,7 @@
 using namespace std;
 
 class Piece{
-  int x,y;
+  Cell* cell;
   bool black;
   char figure;
 public:
@@ -12,5 +12,6 @@ public:
 
   void move();
   bool valid();
+  void setCell(Cell* c); 
 
 };

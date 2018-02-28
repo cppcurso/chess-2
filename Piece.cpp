@@ -26,17 +26,16 @@ string Piece::getName(){
 
 }
 
-void move(x,y){
+void Piece::move(x,y){
   int x;
   int y;
-  
+}
+
+void Piece::setCell(Cell* c) {
+    cell = c;
 }
 
 // bool Piece::valid(x, y){
 //   bool check=true;
 //   return check;
 // }
-int main()
-{
-
-}
