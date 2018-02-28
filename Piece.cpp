@@ -4,15 +4,19 @@
 
 using namespace std;
 
+
+bool Piece::isBlack() {
+	return black;
+}
+
 Piece::Piece(char figura, bool black) {
     this->figura=figura;
     this->black=black;
 }
 
 string Piece::getColour() {
-    bool black;
     string colour;
-    if (black=true) {
+    if (black==true) {
       colour="negro";
     } else {
       colour="blanco";
@@ -21,12 +25,7 @@ string Piece::getColour() {
 }
 
 string Piece::getName() {
-    string p = "pawn";
-    string k = "king";
-    string q = "queen";
-    string b = "bishop";
-    string t = "tower";
-    string h = "horse";
+    return name;
 }
 
 void Piece::move(x,y) {
@@ -41,7 +40,7 @@ void Piece::setCell(Cell* c) {
 Cell* Piece::location() {
     return cell;
 }
-// bool Piece::valid(x, y){
-//   bool check=true;
-//   return check;
-// }
+
+bool Piece::isOnCell() {
+	return cell;
+}
