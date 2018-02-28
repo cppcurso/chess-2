@@ -40,3 +40,7 @@ void Piece::setCell(Cell* c) {
 Cell* Piece::location() {
     return cell;
 }
+
+bool Piece::isOnCell() {
+	return cell;
+}

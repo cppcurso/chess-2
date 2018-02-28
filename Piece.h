@@ -20,5 +20,7 @@ public:
   void move(int x, int y);
   virtual bool valid()=0;
   void setCell(Cell* c);
+  Cell* location();
+  bool isOnCell();
 
 };
