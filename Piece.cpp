@@ -4,32 +4,32 @@
 
 using namespace std;
 
-Piece::Piece(char figura, bool black){
-  this->figura=figura;
-  this->black=black;
+Piece::Piece(char figura, bool black) {
+    this->figura=figura;
+    this->black=black;
 }
 
-string Piece::getColour(){
-  bool black;
-  string colour;
-  if (black=true){
-    colour="negro";
-  }else{
-    colour="blanco";
-  }
-  return colour;
+string Piece::getColour() {
+    bool black;
+    string colour;
+    if (black=true) {
+      colour="negro";
+    } else {
+      colour="blanco";
+    }
+    return colour;
 }
 
-string Piece::getName(){
-  string p = "pawn";
-  string k = "king";
-  string q = "queen";
-  string b = "bishop";
-  string t = "tower";
-  string h = "horse";
+string Piece::getName() {
+    string p = "pawn";
+    string k = "king";
+    string q = "queen";
+    string b = "bishop";
+    string t = "tower";
+    string h = "horse";
 }
 
-void Piece::move(x,y){
+void Piece::move(x,y) {
   int x;
   int y;
 }
@@ -38,6 +38,9 @@ void Piece::setCell(Cell* c) {
     cell = c;
 }
 
+Cell* Piece::location() {
+    return cell;
+}
 // bool Piece::valid(x, y){
 //   bool check=true;
 //   return check;

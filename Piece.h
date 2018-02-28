@@ -2,20 +2,17 @@
 
 using namespace std;
 
-class Piece{
-  Cell* cell;
-  bool black;
-  char figure;
+class Piece {
+    Cell* cell;
+    bool black;
+    char figure;
 public:
+    string getColour();
+    string getName();
 
-  Piece();
-  Piece(char figura, bool black);
-    
-  string getColour();
-  string getName();
-
-  void move();
-  bool valid();
-  void setCell(Cell* c);
+    void move();
+    bool valid();
+    void setCell(Cell* c);
+    Cell* location();
 
 };
