@@ -7,11 +7,15 @@ class Piece{
   bool black;
   char figure;
 public:
+
+  Piece();
+  Piece(char figura, bool black);
+    
   string getColour();
   string getName();
 
   void move();
   bool valid();
-  void setCell(Cell* c); 
+  void setCell(Cell* c);
 
 };

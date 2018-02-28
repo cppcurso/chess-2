@@ -4,6 +4,10 @@
 
 using namespace std;
 
+Piece::Piece(char figura, bool black){
+  this->figura=figura;
+  this->black=black;
+}
 
 string Piece::getColour(){
   bool black;
