@@ -4,9 +4,12 @@
 
 using namespace std;
 
+bool Piece::isBlack() {
+	return black;
+}
 
 string Piece::getColour(){
-  bool black;
+
   string colour;
   if (black=true){
     colour="negro";
@@ -17,25 +20,13 @@ string Piece::getColour(){
 }
 
 string Piece::getName(){
-  string p = "pawn";
-  string k = "king";
-  string q = "queen";
-  string b = "bishop";
-  string t = "tower";
-  string h = "horse";
-
+  return name;
 }
 
-void Piece::move(x,y){
-  int x;
-  int y;
+void Piece::move(int x, int y){
+
 }
 
 void Piece::setCell(Cell* c) {
     cell = c;
 }
-
-// bool Piece::valid(x, y){
-//   bool check=true;
-//   return check;
-// }
