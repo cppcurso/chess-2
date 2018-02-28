@@ -5,22 +5,24 @@
 using namespace std;
 
 class Piece {
-    string name;
     Cell* cell;
-    bool black;
-    char figure;
+protected:
+  	bool black;
+  	std::string color;
+  	char figure;
 public:
-
-  Piece(char figure, bool black, Cell* cell = nullptr):figure(figure),black(black);
-
-  string getColour();
-  string getName();
-
-  bool isBlack();
-  void move(int x, int y);
-  virtual bool valid()=0;
-  void setCell(Cell* c);
-  Cell* location();
-  bool isOnCell();
+  	Piece(bool black, char f);
+  	virtual ~Piece();
+  	bool isBlack();
+  	char getFigure() const;
+  	virtual void setCell(const Cell*& cell);
+  	virtual void printPiece() const = 0;
+    string getColor();
+    string getName();
+    virtual void move(int x, int y);
+    virtual bool valid()=0;
+    void setCell(Cell* c);
+    Cell* location();
+    bool isOnCell();
 
 };

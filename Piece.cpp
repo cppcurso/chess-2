@@ -4,33 +4,28 @@
 
 using namespace std;
 
+Piece::Piece(bool b, char f) : cell(nullptr), black(b), figure(f) {
+		if (b == true) {
+			color = "Black";
+		} else {
+			color = "White";
+		}
+}
+
+void Piece::setCell(const Cell*& cell) {
+	this->cell = cell;
+}
+
+char Piece::getFigure() const {
+	return figure;
+}
 
 bool Piece::isBlack() {
 	return black;
 }
 
-Piece::Piece(char figura, bool black) {
-    this->figura=figura;
-    this->black=black;
-}
-
 string Piece::getColour() {
-    string colour;
-    if (black==true) {
-      colour="negro";
-    } else {
-      colour="blanco";
-    }
-    return colour;
-}
-
-string Piece::getName() {
-    return name;
-}
-
-void Piece::move(x,y) {
-  int x;
-  int y;
+    return color;
 }
 
 void Piece::setCell(Cell* c) {
