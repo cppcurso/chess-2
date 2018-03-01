@@ -9,7 +9,7 @@ class Horse  : public Piece {
 
 public:
 	Horse(bool b);
-
+	bool validMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo);
 };
 
 #endif /* SRC_HORSE_H_ */
