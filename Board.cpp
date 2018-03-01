@@ -25,7 +25,10 @@ bool Board::isEndRow(Cell* cell){
 bool Board::isEndColumn(Cell* cell){
 	return ((cell->getX()==0 || (cell->getX() == (dimension -1))));
 }
-
+bool Board::isOutBoard(Cell* cell) {
+	return ((cell->getX()>7 || cell->getX()<0)
+			|| (cell->getY()>7 || cell->getY()<0));
+}
 
 
 void Board::initBoard(){
