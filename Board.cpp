@@ -88,19 +88,19 @@ void Board::initBoard(){
 			}
 
 		King* K = new King (true);
-	cells [7][4] = new Cell (0,3);
+	cells [7][4] = new Cell (7,4);
 	cells [7][4] ->setPiece(K);
 
 	King* k = new King (false);
-	cells [0][4] = new Cell (0,3);
+	cells [0][4] = new Cell (0,4);
 	cells [0][4] ->setPiece(k);
 
 	Horse* H = new Horse (true);
-	cells [7][1] = new Cell (0,1);
+	cells [7][1] = new Cell (7,1);
 	cells [7][1] ->setPiece(H);
 
 	Horse* H1 = new Horse (true);
-	cells [7][6] = new Cell (0,6);
+	cells [7][6] = new Cell (7,6);
 	cells [7][6] ->setPiece(H1);
 
 	Horse* h = new Horse (false);
@@ -108,7 +108,7 @@ void Board::initBoard(){
 	cells [0][1] ->setPiece(h);
 
 	Horse* h1 = new Horse (false);
-	cells [0][6] = new Cell (0,1);
+	cells [0][6] = new Cell (0,6);
 	cells [0][6] ->setPiece(h1);
 
 
