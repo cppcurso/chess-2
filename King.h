@@ -1,7 +1,14 @@
+#ifndef SRC_KING_H_
+#define SRC_KING_H_
 #include <iostream>
+#include "Piece.h"
 
-class King {
+class King  : public Piece {
+
+
 public:
-  int initialposition[2];
-  int move(int finalposition[2]);
+	King (bool b);
+
 };
+
+#endif /* SRC_KING_H_ */

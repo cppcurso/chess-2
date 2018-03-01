@@ -51,11 +51,11 @@ void Board::initBoard(){
 		cells[7][7] = new Cell(7,7);
 		cells[7][7]->setPiece(T2);
 
-		Tower* t1 = new Tower(true); //Torre blanco
+		Tower* t1 = new Tower(false); //Torre blanco
 		cells[0][0] = new Cell(0,0);
 		cells[0][0]->setPiece(t1);
 
-		Tower* t2 = new Tower(true); //Torre blanco
+		Tower* t2 = new Tower(false); //Torre blanco
 		cells[0][7] = new Cell(0,7);
 		cells[0][7]->setPiece(t2);
 
@@ -73,6 +73,31 @@ void Board::initBoard(){
 						cells [6][j]->setPiece(P);
 				}
 			}
+
+		King* K = new King (true);
+	cells [7][4] = new Cell (0,3);
+	cells [7][4] ->setPiece(K);
+
+	King* k = new King (false);
+	cells [0][4] = new Cell (0,3);
+	cells [0][4] ->setPiece(k);
+
+	Horse* H = new Horse (true);
+	cells [7][1] = new Cell (0,1);
+	cells [7][1] ->setPiece(H);
+
+	Horse* H1 = new Horse (true);
+	cells [7][6] = new Cell (0,6);
+	cells [7][6] ->setPiece(H1);
+
+	Horse* h = new Horse (false);
+	cells [0][1] = new Cell (0,1);
+	cells [0][1] ->setPiece(h);
+
+	Horse* h1 = new Horse (false);
+	cells [0][6] = new Cell (0,1);
+	cells [0][6] ->setPiece(h1);
+
 
 
 }
