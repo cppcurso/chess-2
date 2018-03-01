@@ -13,6 +13,7 @@ public:
 	bool isBlack();
 	char getFigure() const;
 	void printPiece() const;
+	virtual bool validMove () = 0;
 };
 
 #endif /* SRC_CLASSGAME_PIECE_H_ */
