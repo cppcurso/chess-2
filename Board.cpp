@@ -59,6 +59,20 @@ void Board::initBoard(){
 		cells[0][7] = new Cell(0,7);
 		cells[0][7]->setPiece(t2);
 
+		Pawn* p = new Pawn (false);
+			for (int i = 0;  i < dimension; ++i) {
+					for (int j = 0;  j < dimension; ++j) {
+							cells [1][j] = new Cell (1, j);
+							cells [1][j]->setPiece(p);
+						}
+			}
+		Pawn* P = new Pawn (true);
+			for (int i = 0;  i < dimension; ++i) {
+				for (int j = 0;  j < dimension; ++j) {
+						cells [6][j] = new Cell (6, j);
+						cells [6][j]->setPiece(P);
+				}
+			}
 
 
 }

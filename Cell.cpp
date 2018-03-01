@@ -28,5 +28,7 @@ Piece* Cell::occupiedBy() {
 void Cell::printCell() {
 		if (isOccupied() == false) {
 			std::cout << "0"<< " ";
+		} else {
+			piece->printPiece();
 		}
 }
