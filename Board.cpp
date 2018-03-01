@@ -18,6 +18,16 @@ void Board::printBoard() {
 		}
 }
 
+bool Board::isEndRow(Cell* cell){
+	return ((cell->getY()==0 || (cell->getY() == (dimension -1))));
+}
+
+bool Board::isEndColumn(Cell* cell){
+	return ((cell->getX()==0 || (cell->getX() == (dimension -1))));
+}
+
+
+
 void Board::initBoard(){
 		Queen* Q = new Queen(true); //Reina negra
 		cells[7][3] = new Cell(7,3);

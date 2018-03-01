@@ -25,6 +25,8 @@ public:
 	static Board* getBoard(); //Devuelve el tablero
 	void printBoard();
 	void initBoard();
+	bool isEndRow(Cell* cell);
+	bool isEndColumn(Cell* cell); 
 };
 
 #endif /* SRC_CLASSGAME_BOARD_H_ */
