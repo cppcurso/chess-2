@@ -1,10 +1,3 @@
-/*
- * Queen.h
- *
- *  Created on: 28/02/2018
- *      Author: usuario
- */
-
 #ifndef SRC_CLASSGAME_QUEEN_H_
 #define SRC_CLASSGAME_QUEEN_H_
 #include "Piece.h"
