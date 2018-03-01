@@ -26,7 +26,8 @@ public:
 	void printBoard();
 	void initBoard();
 	bool isEndRow(Cell* cell);
-	bool isEndColumn(Cell* cell); 
+	bool isEndColumn(Cell* cell);
+	bool isOutBoard(Cell* cell);
 };
 
 #endif /* SRC_CLASSGAME_BOARD_H_ */
