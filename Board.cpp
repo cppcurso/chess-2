@@ -1,4 +1,5 @@
 #include "Board.h"
+#include "Queen.h"
 
 Board* Board::aBoard = nullptr;
 
@@ -14,8 +15,15 @@ void Board::printBoard(){
 			cells[i][j]->printCell();
 
 		}
-		cout << endl;
+		std::cout <<std:: endl;
 
 	}
+
+}
+
+void Board::initBoard(){
+	Queen* q = new Queen (true);
+	cells [7][3] = new Cell (7,3);
+	cells [7][3] ->setPiece(q);
 
 }

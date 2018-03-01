@@ -3,7 +3,9 @@
 #include <iostream>
 #include "Cell.h"
 
+
 class Board {
+
 	Board() {
 		for (int i = 0; i < dimension; ++i) {
 			for (int j = 0; j < dimension; ++j) {
@@ -17,6 +19,7 @@ class Board {
 public:
 	static Board* getBoard(); //Devuelve el tablero
 	void printBoard();
+	void initBoard();
 
 };
 
