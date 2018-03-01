@@ -18,8 +18,8 @@ bool Piece::isBlack() {
 
 void Piece::printPiece() const {
 	if (black == true) {
-		std::cout << toupper(figure) << " ";
+		std::cout << (char) toupper(figure) << " ";
 	} else {
-		std::cout << tolower(figure) << " ";
+		std::cout << (char) tolower(figure) << " ";
 	}
 }
