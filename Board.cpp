@@ -22,8 +22,12 @@ void Board::printBoard(){
 }
 
 void Board::initBoard(){
-	Queen* q = new Queen (true);
+	Queen* Q = new Queen (true); //Init Queen black
 	cells [7][3] = new Cell (7,3);
-	cells [7][3] ->setPiece(q);
+	cells [7][3] ->setPiece(Q);
+
+	Queen* q = new Queen (false); //Init Queen white
+	cells [0][3] = new Cell (0,3);
+	cells [0][3] ->setPiece(q);
 
 }
