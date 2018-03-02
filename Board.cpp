@@ -30,6 +30,13 @@ bool Board::isOutBoard(Cell* cell) {
 			|| (cell->getY()>7 || cell->getY()<0));
 }
 
+bool Board::canMoveTo(Cell* from, Cell* to) {
+	bool isPermited = false;
+	if (isOutBoard(to) == true) {
+		isPermited = false;
+	}
+	return isPermited;
+}
 
 void Board::initBoard(){
 		Queen* Q = new Queen(true); //Reina negra

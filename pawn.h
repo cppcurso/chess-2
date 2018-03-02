@@ -12,6 +12,8 @@
 class Pawn : public Piece{
 public:
 	Pawn(bool b);
+	~Pawn();
+	bool validMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo);
 };
 
 #endif /* SRC_PAWN_H_ */

@@ -28,6 +28,7 @@ public:
 	bool isEndRow(Cell* cell);
 	bool isEndColumn(Cell* cell);
 	bool isOutBoard(Cell* cell);
+	bool canMoveTo(Cell* from, Cell* to);
 };
 
 #endif /* SRC_CLASSGAME_BOARD_H_ */
