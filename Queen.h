@@ -5,6 +5,7 @@
 class Queen : public Piece {
 public:
 	Queen(bool b);
+	~Queen();
 	bool validMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo);
 };
 

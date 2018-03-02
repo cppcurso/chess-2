@@ -11,6 +11,7 @@ protected:
 	bool notMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo);
 public:
 	Piece(bool b);
+	virtual ~Piece();
 	bool isBlack();
 	char getFigure() const;
 	void printPiece() const;

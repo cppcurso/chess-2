@@ -9,6 +9,7 @@ class Horse  : public Piece {
 
 public:
 	Horse(bool b);
+	~Horse();
 	bool validMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo);
 };
 
