@@ -6,22 +6,25 @@ Horse::Horse (bool b) : Piece (b) {
 
 }
 bool Horse::validMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo){
+	if(notMove(xFrom,yFrom,xTo,yFrom)==true) return false;
 	bool valid;
-	if((xTo - xFrom) ==1 && (yTo - yFrom) ==2){
+	int x = xTo -xFrom;
+	int y = yTo - yFrom;
+	if(x ==1 && y ==2){
 		valid = true;
-	}else if((xTo - xFrom) ==-1 && (yTo - yFrom) ==2){
+	}else if(x ==-1 && y ==2){
 		valid = true;
-	}else if((xTo - xFrom) ==1 && (yTo - yFrom) ==-2){
+	}else if(x ==1 && y ==-2){
 		valid = true;
-	}else if((xTo - xFrom) ==-1 && (yTo - yFrom) ==-2){
+	}else if(x ==-1 && y ==-2){
 		valid = true;
-	}else if((xTo - xFrom) ==2 && (yTo - yFrom) ==1){
+	}else if(x ==2 && y ==1){
 		valid = true;
-	}else if((xTo - xFrom) ==-2 && (yTo - yFrom) ==1){
+	}else if(x ==-2 && y ==1){
 		valid = true;
-	}else if((xTo - xFrom) ==2 && (yTo - yFrom) ==-1){
+	}else if(x ==2 && y ==-1){
 		valid = true;
-	}else if((xTo - xFrom) ==-2 && (yTo - yFrom) ==-1){
+	}else if(x ==-2 && y ==-1){
 		valid = true;
 	}else{
 		valid=false;

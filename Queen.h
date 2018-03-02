@@ -5,6 +5,7 @@
 class Queen : public Piece {
 public:
 	Queen(bool b);
+	bool validMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo);
 };
 
 #endif /* SRC_CLASSGAME_QUEEN_H_ */
