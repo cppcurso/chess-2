@@ -12,7 +12,7 @@
 class Tower : public Piece {
 public:
 	Tower(bool b);
-	~Tower();
+	//~Tower();
 	bool validMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo);
 };
 

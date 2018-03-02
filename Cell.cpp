@@ -1,3 +1,10 @@
+/*
+ * Cell.cpp
+ *
+ *  Created on: 27/02/2018
+ *      Author: usuario
+ */
+
 #include "Cell.h"
 
 int Cell::getX() const {
@@ -13,22 +20,27 @@ void Cell::setPiece(Piece* p) {
 }
 
 bool Cell::isOccupied() {
-		if (piece == nullptr) {
-			return false;
-		} else {
-			return true;
-		}
+	if (piece == nullptr) {
+		return false;
+	} else {
+		return true;
+	}
 }
 
 Piece* Cell::occupiedBy() {
 	return piece;
 }
 
+Piece* Cell::getPiece() {
+	return piece;
+}
 
 void Cell::printCell() {
-		if (isOccupied() == false) {
-			std::cout << "0"<< " ";
-		} else {
-			piece->printPiece();
-		}
+	if (isOccupied() == false) {
+		std::cout << "0" << " ";
+	} else {
+		piece->printPiece();
+	}
 }
+
+

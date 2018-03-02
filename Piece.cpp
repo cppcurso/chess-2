@@ -1,3 +1,10 @@
+/*
+ * Piece.cpp
+ *
+ *  Created on: 27/02/2018
+ *      Author: usuario
+ */
+
 #include "Piece.h"
 
 Piece::Piece(bool b) : black(b), figure(' '){
@@ -28,8 +35,8 @@ bool Piece::isBlack() {
 
 void Piece::printPiece() const {
 	if (black == true) {
-		std::cout << (char) toupper(figure) << " ";
+		std::cout << (char)toupper(figure) << " ";
 	} else {
-		std::cout << (char) tolower(figure) << " ";
+		std::cout << (char)tolower(figure) << " ";
 	}
 }
