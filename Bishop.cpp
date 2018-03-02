@@ -15,7 +15,7 @@ bool Bishop::validMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo,
 	bool isValid = false;
 	int cellX = xTo - xFrom;
 	int cellY = yTo - yFrom;
-	if (notMove(xFrom, yFrom, xTo, yTo) == true)) return false;
+	if (notMove(xFrom, yFrom, xTo, yTo) == true) return false;
 	if (abs(cellX) == abs(cellY)) {
 		isValid = true;
 	}
