@@ -12,7 +12,7 @@ bool Piece::notMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, un
 	bool notMove = false;
 	int cellX = xTo - xFrom;
 	int cellY = yTo - yFrom;
-	if (xTo == 0 && yTo == 0) {
+	if (cellX == 0 && cellY == 0) {
 		notMove = true;
 	}
 	return notMove;
