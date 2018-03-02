@@ -1,4 +1,4 @@
-# chess-2
+# Chess 2
 El ajedrez en C++ de la fila 2
 ## Developers
 - Carlos Gonzalez
