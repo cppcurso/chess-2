@@ -8,6 +8,7 @@ protected:
 	bool black;
 	std::string color;
 	char figure;
+	bool notMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo);
 public:
 	Piece(bool b);
 	bool isBlack();
