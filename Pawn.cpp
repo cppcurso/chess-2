@@ -5,19 +5,25 @@
  *      Author: usuario
  */
 
-#include "Pawn.h"
+ #include "Pawn.h"
 
-Pawn::Pawn(bool b) : Piece(b) {
-	figure = 'P';
-}
+ Pawn::Pawn(bool b) : Piece(b) {
+ 	figure = 'P';
+ 	strategy = nullptr;
+ }
+ void Pawn::setCells(Cell* from, Cell* to){
+ 	this->from = from;
+ 	this->to = to;
+ }
 
-bool Pawn::validMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo) {
-	bool isValid = false;
-	int cellX = xTo - xFrom;
-	int cellY = yTo - yFrom;
-	if (notMove(xFrom, yFrom, xTo, yTo) == true) return false;
-	if (abs(cellY) == 0 && abs(cellX) == 1) {
-		isValid = true;
-	}
-	return isValid;
-}
+ bool Pawn::validMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo) {
+
+ 	int cellY = yTo - yFrom;
+ 	if(cellY != 0){
+ 		strategy = new AttackStrategy();
+ 		return strategy->attack(xFrom, yFrom, xTo, yTo, from, to);
+ 	} else {
+ 		strategy = new StandardStrategy();
+ 		return strategy->validMove(xFrom, yFrom, xTo, yTo);
+ 	}
+ }

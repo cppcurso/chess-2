@@ -16,8 +16,9 @@ protected:
 	bool black;
 	std::string color;
 	char figure;
-	bool notMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo);
+
 public:
+	static bool notMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo);
 	Piece(bool b);
 	//virtual ~Piece();
 	bool isBlack();

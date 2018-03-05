@@ -5,15 +5,25 @@
  *      Author: usuario
  */
 
-#ifndef SRC_CLASSGAME_PAWN_H_
-#define SRC_CLASSGAME_PAWN_H_
-#include "Piece.h"
 
-class Pawn : public Piece {
-public:
-	Pawn(bool b);
-	//~Pawn();
-	bool validMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo);
-};
+ #ifndef SRC_CLASSGAME_PAWN_H_
+ #define SRC_CLASSGAME_PAWN_H_
+ #include "Piece.h"
+ #include "Strategy/PawnStrategy.h"
+ #include "Strategy/StandardStrategy.h"
+ #include "Strategy/AttackStrategy.h"
 
-#endif /* SRC_CLASSGAME_PAWN_H_ */
+ class Pawn : public Piece {
+ 	PawnStrategy* strategy;
+ 	Cell* from;
+ 	Cell* to;
+ public:
+ 	Pawn(bool b);
+ 	//~Pawn();
+ 	void setCells(Cell* from, Cell* to);
+ 	bool validMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo);
+
+
+ };
+
+ #endif /* SRC_CLASSGAME_PAWN_H_ */
