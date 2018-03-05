@@ -15,6 +15,7 @@
 #include "Pawn.h"
 #include "King.h"
 #include "Horse.h"
+#include "Console.h"
 
 class Board {
 	Board() {

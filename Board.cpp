@@ -42,22 +42,29 @@ Cell* Board::getCell(unsigned int x, unsigned int y) {
 }
 
 void Board::move(Cell* from, Cell* to) {
-	if (canMoveTo(from, to) == true) {
-		cells[to->getX()][to->getY()]->setPiece(from->getPiece());
-		cells[from->getX()][from->getY()]->setPiece(nullptr);
-	} else {
-		std::cout << "error" << std::endl;
-	}
+	cells[to->getX()][to->getY()]->setPiece(from->getPiece());
+	cells[from->getX()][from->getY()]->setPiece(nullptr);
 }
 
 bool Board::canMoveTo(Cell* from, Cell* to) {
-	if (!from->isOccupied()) return false;
-	if (isOutBoard(to) == true) return false;
-	//char fig = from->getPiece()->getFigure();
+	if (!from->isOccupied()) {
+		Console::showError("Casilla vacia");
+		return false;
+	}
+	if (isOutBoard(to) == true){
+		Console::showError("Casilla fuera del tablero");
+		return false;
+	}
 	bool move = from->getPiece()->validMove(from->getX(), from->getY(), to->getX(), to->getY());
-	if (move == false ) return false;
+	if (move == false ) {
+		Console::showError("Movimiento no permitido por esta pieza");
+		return false;
+	}
 	if (to->isOccupied()) {
-			if (from->getPiece()->isBlack() == to->getPiece()->isBlack()) return false;
+			if (from->getPiece()->isBlack() == to->getPiece()->isBlack()) {
+				Console::showError("Casilla ocupada por pieza del mismo color");
+				return false;
+			}
 	}
 	return true;
 }
