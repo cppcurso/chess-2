@@ -11,7 +11,7 @@
 #include "Board.h"
 #include "Console.h"
 
-class Chess : Game {
+class Chess : public Game {
 public:
 	bool checkMate;
 	unsigned int turnNumber;

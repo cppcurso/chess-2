@@ -12,7 +12,8 @@
 class Console {
 public:
 	static unsigned int askPieceCell(std::string coordinate);
-	static void showError(std::string);
+	static void showError(std::string error);
+	static void printSpace();
 };
 
 #endif /* SRC_CLASSGAME_CONSOLE_H_ */
