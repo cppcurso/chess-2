@@ -15,10 +15,8 @@ class Chess : public Game {
 public:
 	bool checkMate;
 	unsigned int turnNumber;
-	Chess() : Game(2) {
-		//count++;
-		//turnNumber = count;
-	}
+	Piece* lastEatenPiece;
+	Chess() : Game(2) {}
 	void start();
 	bool end();
 	void turn();

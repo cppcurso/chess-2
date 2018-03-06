@@ -17,11 +17,6 @@ void Chess::start() {
 	checkMate = false;
 }
 
-bool Chess::end() {
-	bool checkMate = false;
-	return checkMate;
-}
-
 void Chess::turn() {
 	unsigned int x1 = Console::askPieceCell("X1");
 	unsigned int y1 = Console::askPieceCell("Y1");
@@ -41,22 +36,36 @@ void Chess::turn() {
 	}
 
 	if (isTurnMoveValid == false) {
-		Console::showError("");
+		Console::showError("Movimiento no permitido");
 		Console::printSpace();
 		return;
 	}
 
-	Board::getBoard()->move(Board::getBoard()->getCell(x1, y1),Board::getBoard()->getCell(x2, y2));
+	lastEatenPiece = Board::getBoard()->move(Board::getBoard()->getCell(x1, y1),Board::getBoard()->getCell(x2, y2));
+	if (lastEatenPiece != nullptr) {
+		Console::showSucces("Te has comido una pieza");
+	} else {
+		Console::showSucces("Movimiento correcto");
+	}
+
 	Board::getBoard()->printBoard();
 	Console::printSpace();
 
 	turnNumber++;
+}
 
-	if (turnNumber == 20) {
+bool Chess::end() {
+	checkMate = false;
+	if (lastEatenPiece != nullptr && lastEatenPiece->getFigure() == 'K') {
 		checkMate = true;
 	}
+	return checkMate;
 }
 
 void Chess::finish() {
-	std::cout << "Jugador 1 ha ganado!" << '\n';
+	if (lastEatenPiece->isBlack() == false) {
+		std::cout << "Jugador Blanco ha ganado!" << std::endl;
+	} else {
+		std::cout << "Jugador Negro ha ganado!" << std::endl;
+	}
 }

@@ -35,7 +35,10 @@ public:
 	bool isEndRow(Cell* cell);
 	bool isEndColumn(Cell* cell);
 	bool isOutBoard(Cell* cell);
-	void move(Cell* from, Cell* to);
+	bool isColumnFree(Cell* from, Cell* to);
+	bool isRowFree(Cell* from, Cell* to);
+	bool isDiagonalFree(Cell* from, Cell* to);
+	Piece* move(Cell* from, Cell* to);
 	bool canMoveTo(Cell* from, Cell* to);
 	Cell* getCell(unsigned int x, unsigned int y);
 };

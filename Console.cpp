@@ -29,7 +29,11 @@ unsigned int Console::askPieceCell(std::string coordinate) {
 }
 
 void Console::showError(std::string error) {
-		std::cout << "Movimiento erroneo: " << error << std::endl;
+	std::cout << "Movimiento erroneo: " << error << std::endl;
+}
+
+void Console::showSucces(std::string succes) {
+	std::cout << "Exito: " << succes << std::endl;
 }
 
 void Console::printSpace() {
