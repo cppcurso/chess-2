@@ -18,8 +18,9 @@
 
  bool Pawn::validMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo) {
 
+ 	int cellX = xTo - xFrom;
  	int cellY = yTo - yFrom;
- 	if(cellY != 0){
+ 	if(((cellY != 0) && (cellX !=0)) == 1) {
  		strategy = new AttackStrategy();
  		return strategy->attack(xFrom, yFrom, xTo, yTo, from, to);
  	} else {

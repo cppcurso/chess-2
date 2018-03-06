@@ -15,8 +15,6 @@
 
  class Pawn : public Piece {
  	PawnStrategy* strategy;
- 	Cell* from;
- 	Cell* to;
  public:
  	Pawn(bool b);
  	//~Pawn();

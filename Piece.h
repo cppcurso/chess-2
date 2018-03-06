@@ -10,12 +10,16 @@
 #include <iostream>
 #include <ctype.h>
 #include <cstdlib>
+class Cell;
+
 
 class Piece {
 protected:
 	bool black;
 	std::string color;
 	char figure;
+	Cell* from;
+	Cell* to;
 
 public:
 	static bool notMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo);
@@ -25,6 +29,7 @@ public:
 	char getFigure() const;
 	void printPiece() const;
 	virtual bool validMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo) = 0;
+	void setCells(Cell* from, Cell* to);
 };
 
 #endif /* SRC_CLASSGAME_PIECE_H_ */
