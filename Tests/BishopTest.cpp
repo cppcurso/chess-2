@@ -19,7 +19,7 @@ TEST_F(BishopTest, validMoves) {
 	ASSERT_TRUE(isValid1);
 	bool isValid2 = bishop1.validMove(0,2,1,2);
 	ASSERT_FALSE(isValid2);
-	bool isValid1 = bishop1.validMove(0,2,1,3);
-	ASSERT_TRUE(isValid1);
+	bool isValid3 = bishop1.validMove(0,2,1,3);
+	ASSERT_TRUE(isValid3);
 
 }
