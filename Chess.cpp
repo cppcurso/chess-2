@@ -48,9 +48,12 @@ void Chess::turn() {
 		Console::showSucces("Movimiento correcto");
 	}
 
+	Board::getBoard()->countPiece();
 	Board::getBoard()->printBoard();
 	Console::printSpace();
+	Storage::saveGame();
 
+	
 	turnNumber++;
 }
 
