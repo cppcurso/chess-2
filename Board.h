@@ -32,6 +32,7 @@ public:
 	static Board* getBoard(); //Devuelve el tablero
 	void printBoard();
 	void initBoard();
+	unsigned int countPiece ();
 	bool isEndRow(Cell* cell);
 	bool isEndColumn(Cell* cell);
 	bool isOutBoard(Cell* cell);
@@ -41,7 +42,6 @@ public:
 	Piece* move(Cell* from, Cell* to);
 	bool canMoveTo(Cell* from, Cell* to);
 	Cell* getCell(unsigned int x, unsigned int y);
-	void countPiece ();
 };
 
 #endif /* SRC_CLASSGAME_BOARD_H_ */

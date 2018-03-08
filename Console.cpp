@@ -39,3 +39,17 @@ void Console::showSucces(std::string succes) {
 void Console::printSpace() {
 	std::cout << "---------------------" << std::endl;
 }
+
+bool Console::startChess() {
+	char answer;
+	std::cout << "¿Quieres empezar o continuar? [B/C]: ";
+	std::cin >> answer;
+	if (answer == 'B') {
+		return true;
+	} else if (answer == 'C'){
+		return false;
+	} else {
+		Console::startChess();
+	}
+
+}

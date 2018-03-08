@@ -10,6 +10,7 @@
 #include "Game.h"
 #include "Board.h"
 #include "Console.h"
+#include "../SaveFile/Storage.h"
 
 class Chess : public Game {
 public:
