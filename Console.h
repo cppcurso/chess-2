@@ -15,6 +15,7 @@ public:
 	static void showError(std::string error);
 	static void showSucces(std::string succes);
 	static void printSpace();
+	static bool startChess();
 };
 
 #endif /* SRC_CLASSGAME_CONSOLE_H_ */
