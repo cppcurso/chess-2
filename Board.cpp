@@ -160,6 +160,23 @@ bool Board::canMoveTo(Cell* from, Cell* to) {
 	}
 	return true;
 }
+
+
+void Board::countPiece (){
+	unsigned int count = 0;
+
+	for (int i = 0; i < dimension; ++ i) {
+		for ( int j = 0;  j < dimension; ++ j) {
+			if (getCell(i, j)->getPiece() != nullptr) {
+				count ++;
+			}
+		}
+	}
+				std::cout << count<< std::endl;
+}
+
+
+
 void Board::initBoard() {
 	Queen* Q = new Queen(true);
 	cells[7][3] = new Cell(7,3);
