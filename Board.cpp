@@ -162,7 +162,7 @@ bool Board::canMoveTo(Cell* from, Cell* to) {
 }
 
 
-void Board::countPiece (){
+unsigned int Board::countPiece (){
 	unsigned int count = 0;
 
 	for (int i = 0; i < dimension; ++ i) {
@@ -172,7 +172,7 @@ void Board::countPiece (){
 			}
 		}
 	}
-				std::cout << count<< std::endl;
+				return count;
 }
 
 

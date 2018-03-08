@@ -41,7 +41,7 @@ public:
 	Piece* move(Cell* from, Cell* to);
 	bool canMoveTo(Cell* from, Cell* to);
 	Cell* getCell(unsigned int x, unsigned int y);
-	void countPiece ();
+	unsigned int countPiece ();
 };
 
 #endif /* SRC_CLASSGAME_BOARD_H_ */
