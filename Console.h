@@ -16,6 +16,7 @@ public:
 	static void showSucces(std::string succes);
 	static void printSpace();
 	static bool startChess();
+	static bool outChess();
 };
 
 #endif /* SRC_CLASSGAME_CONSOLE_H_ */
