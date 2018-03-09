@@ -24,6 +24,18 @@ void Board::printBoard(){
 	}
 }
 
+unsigned int Board::countPiece () {
+	unsigned int count = 0;
+	for (int i = 0; i < dimension; ++ i) {
+		for ( int j = 0;  j < dimension; ++ j) {
+			if (getCell(i, j)->getPiece() != nullptr) {
+				count ++;
+			}
+		}
+	}
+	return count;
+}
+
 bool Board::isEndRow(Cell* cell) {
 	return ((cell->getY() == 0) || (cell->getY() == (dimension -1)));
 }
@@ -38,15 +50,15 @@ bool Board::isOutBoard(Cell* cell) {
 }
 
 bool Board::isColumnFree(Cell* from, Cell* to) {
-	if((to->getX() - from->getX())>0){ // Movimiento hacia abajo
-		for(int i = 1; i < (to->getX() - from->getX()) ; i++){//Comprueba si la vertical positiva está libre
-			if(getCell((from->getX()+i), from->getY())->isOccupied() == true){
+	if (to->getX() - from->getX() > 0) {
+		for (int i = from->getX() + 1; i < (to->getX() - from->getX()); i++) {
+			if (getCell(i, from->getY())->isOccupied() == true) {
 				return false;
 			}
 		}
-	}else{ // Movimiento hacia arriba
-		for(int i = 1; i < (from->getX() - to->getX()) ; i++){//Comprueba si la vertical positiva está libre
-			if(getCell((from->getX()-i), from->getY())->isOccupied() == true){
+	} else {
+		for (int i = from->getX() - 1; i < (from->getX() - to->getX()); i--) {
+			if (getCell(i, from->getY())->isOccupied() == true) {
 				return false;
 			}
 		}
@@ -55,15 +67,15 @@ bool Board::isColumnFree(Cell* from, Cell* to) {
 }
 
 bool Board::isRowFree(Cell* from, Cell* to) {
-	if((to->getY() - from->getY())>0){ // Movimiento hacia la derecha
-		for(int i = 1; i < (to->getY() - from->getY()) ; i++){//Comprueba si la horizontal positiva está libre
-			if(getCell(from->getX(), (from->getY()+i))->isOccupied() == true){
+	if (to->getX() - from->getX() > 0) {
+		for (int i = from->getY() + 1; i < (to->getY() - from->getY()); i++) {
+			if (getCell(from->getX(), i)->isOccupied() == true) {
 				return false;
 			}
 		}
-	}else{ // Movimiento hacia la izquierda
-		for(int i = 1; i < (from->getY() - to->getY()) ; i++){//Comprueba si la horizontal negativa está libre
-			if(getCell(from->getX(), (from->getY()-i))->isOccupied() == true){
+	} else {
+		for (int i = from->getY() - 1; i < (from->getY() - to->getY()); i--) {
+			if (getCell(from->getX(), i)->isOccupied() == true) {
 				return false;
 			}
 		}
@@ -77,25 +89,25 @@ bool Board::isDiagonalFree(Cell* from, Cell* to) {
 			if(getCell(from->getX()+i, from->getY()+i)->isOccupied() == true){
 				return false;
 			}
-	}else if((to->getY() - from->getY())<0 && (to->getX() - from->getX())<0){
-		for(int i = 1 ; i < (from->getX() - to->getX()) ; i++){//Comprueba si la diagonal está libre hacia la izquierda y hacia arriba
-			if(getCell(from->getX()-i, from->getY()-i)->isOccupied() == true){
-				return false;
+		}else if((to->getY() - from->getY())<0 && (to->getX() - from->getX())<0){
+			for(int i = 1 ; i < (from->getX() - to->getX()) ; i++){//Comprueba si la diagonal está libre hacia la izquierda y hacia arriba
+				if(getCell(from->getX()-i, from->getY()-i)->isOccupied() == true){
+					return false;
+				}
+			}
+		}else if((to->getY() - from->getY())>0 && (to->getX() - from->getX())<0){
+			for(int i = 1 ; i < (from->getX() - to->getX()) ; i++){//Comprueba si la diagonal está libre hacia la derecha y hacia arriba
+				if(getCell(from->getX()-i, from->getY()+i)->isOccupied() == true){
+					return false;
+				}
+			}
+		}else if((to->getY() - from->getY())<0 && (to->getX() - from->getX())>0){
+			for(int i = 1 ; i < (to->getX() - from->getX()) ; i++){//Comprueba si la diagonal está libre hacia la izquierda y hacia arriba
+				if(getCell(from->getX()+i, from->getY()-i)->isOccupied() == true){
+					return false;
+				}
 			}
 		}
-	}else if((to->getY() - from->getY())>0 && (to->getX() - from->getX())<0){
-		for(int i = 1 ; i < (from->getX() - to->getX()) ; i++){//Comprueba si la diagonal está libre hacia la derecha y hacia arriba
-			if(getCell(from->getX()-i, from->getY()+i)->isOccupied() == true){
-				return false;
-			}
-		}
-	}else if((to->getY() - from->getY())<0 && (to->getX() - from->getX())>0){
-		for(int i = 1 ; i < (to->getX() - from->getX()) ; i++){//Comprueba si la diagonal está libre hacia la izquierda y hacia arriba
-			if(getCell(from->getX()+i, from->getY()-i)->isOccupied() == true){
-				return false;
-			}
-		}
-	}
 	return true;
 }
 
@@ -119,45 +131,24 @@ bool Board::canMoveTo(Cell* from, Cell* to) {
 		Console::showError("Casilla fuera del tablero");
 		return false;
 	}
-
-  if(from->getPiece()->getFigure() == 'P') {
-      from->getPiece()->setCells(from, to);
-  }
 	bool move = from->getPiece()->validMove(from->getX(), from->getY(), to->getX(), to->getY());
 	if (move == false ) {
 		Console::showError("Movimiento no permitido por esta pieza");
 		return false;
 	}
-	if(from->getPiece()->getFigure() == 'T'){
-		if(from->getY()==to->getY() && !isColumnFree(from,to)){
-			Console::showError("Columna no libre (piezas en la trayectoria)");
-			return false;
-		}
-		if(from->getX()==to->getX() && !isRowFree(from,to)){
-			Console::showError("Fila no libre (piezas en la trayectoria)");
-			return false;
-		}
+	if (from->getPiece()->getFigure() == 'T') {
+		if (from->getY() == to->getY() && !isColumnFree(from, to)) return false;
+		if (from->getX() == to->getX() && !isRowFree(from, to)) return false;
 	}
-	if(from->getPiece()->getFigure() == 'B'){
-		if(!isDiagonalFree(from,to)){
-			Console::showError("Diagonal no libre (piezas en la trayectoria)");
-			return false;
-		}
+	if (from->getPiece()->getFigure() == 'B') {
+		if (abs(from->getX() - to->getX()) == abs(from->getY() - to->getY() && !isDiagonalFree(from, to))) return false;
 	}
-	if(from->getPiece()->getFigure() == 'Q'){
-		if(from->getY()==to->getY() && !isColumnFree(from,to)){
-			Console::showError("Columna no libre (piezas en la trayectoria)");
-			return false;
-		}
-		if(from->getX()==to->getX() && !isRowFree(from,to)){
-			Console::showError("Fila no libre (piezas en la trayectoria)");
-			return false;
-		}
-		if(abs(to->getX()-from->getX())==abs(to->getY()-from->getY()) && !isDiagonalFree(from,to)){//la diferencia x y de y debe ser igual
-			Console::showError("Diagonal no libre (piezas en la trayectoria)");
-			return false;
-		}
+	if (from->getPiece()->getFigure() == 'Q') {
+			if (from->getY() == to->getY() && !isColumnFree(from, to)) return false;
+			if (from->getX() == to->getX() && !isRowFree(from, to)) return false;
+			if (abs(from->getX() - to->getX()) == abs(from->getY() - to->getY() && !isDiagonalFree(from, to))) return false;
 	}
+<<<<<<< HEAD
 	return true;
 }
 
@@ -169,14 +160,20 @@ unsigned int Board::countPiece (){
 		for ( int j = 0;  j < dimension; ++ j) {
 			if (getCell(i, j)->getPiece() != nullptr) {
 				count ++;
+=======
+	if (to->isOccupied()) {
+			if (from->getPiece()->isBlack() == to->getPiece()->isBlack()) {
+				Console::showError("Casilla ocupada por pieza del mismo color");
+				return false;
+>>>>>>> 5d2eaf4724de89faf00702a8e2d014f1f194a67a
 			}
-		}
 	}
+<<<<<<< HEAD
 				return count;
+=======
+	return true;
+>>>>>>> 5d2eaf4724de89faf00702a8e2d014f1f194a67a
 }
-
-
-
 void Board::initBoard() {
 	Queen* Q = new Queen(true);
 	cells[7][3] = new Cell(7,3);

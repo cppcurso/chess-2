@@ -15,6 +15,7 @@ using namespace std;
 class Storage {
 public:
 	static void saveGame();
+	static void loadGame();
 
 };
 

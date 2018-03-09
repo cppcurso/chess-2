@@ -10,7 +10,11 @@
 //unsigned int Chess::count = 0;
 
 void Chess::start() {
-	Board::getBoard()->initBoard();
+	if (Console::startChess() == true) {
+		Board::getBoard()->initBoard();
+	} else {
+		Storage::loadGame();
+	}
 	Board::getBoard()->printBoard();
 	Console::printSpace();
 	turnNumber = 0;
@@ -48,12 +52,10 @@ void Chess::turn() {
 		Console::showSucces("Movimiento correcto");
 	}
 
-	Board::getBoard()->countPiece();
 	Board::getBoard()->printBoard();
 	Console::printSpace();
 	Storage::saveGame();
 
-	
 	turnNumber++;
 }
 
