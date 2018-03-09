@@ -7,8 +7,9 @@
 
 #include "Storage.h"
 
-void Storage::saveGame() {
+void Storage::saveGame(unsigned int turns) {
 	ofstream storageFile("ChessSave.txt", ios::binary);
+	storageFile.write((char*) &turns, sizeof(unsigned int));
 	unsigned int numberPieces = Board::getBoard()->countPiece();
 	storageFile.write((char*) &numberPieces, sizeof(unsigned int));
 	for (int i = 0; i < 8; i++) {
@@ -25,13 +26,14 @@ void Storage::saveGame() {
 	}
 }
 
-void Storage::loadGame() {
+void Storage::loadGame(unsigned int &turns) {
 	ifstream storageFile("ChessSave.txt", ios::binary);
+	storageFile.read((char*) &turns, sizeof(unsigned int));
 	unsigned int numberPieces = 0;
 	storageFile.read((char*) &numberPieces, sizeof(unsigned int));
 	unsigned int x = 0;
 	unsigned int y = 0;
-	for (unsigned int i = 0; i <= numberPieces; i++) {
+	for (unsigned int i = 0; i < numberPieces; i++) {
 		storageFile.read((char*) &x, sizeof(unsigned int));
 		storageFile.read((char*) &y, sizeof(unsigned int));
 		Piece* p = new Pawn(true);

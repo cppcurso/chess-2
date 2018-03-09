@@ -9,13 +9,13 @@
 #define SRC_SAVEFILE_STORAGE_H_
 #include <iostream>
 #include <fstream>
-#include "../Board.h"
+#include "../ClassGame/Board.h"
 using namespace std;
 
 class Storage {
 public:
-	static void saveGame();
-	static void loadGame();
+	static void saveGame(unsigned int turns);
+	static void loadGame(unsigned int &turns);
 
 };
 

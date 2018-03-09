@@ -9,8 +9,8 @@
 
 void Game::play() {
 	start();
-	while (!end()) {
+	do {
 		turn();
 	}
-	finish();
+	while (!end());
 }

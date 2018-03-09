@@ -10,15 +10,15 @@
 //unsigned int Chess::count = 0;
 
 void Chess::start() {
+	turnNumber = 0;
+	checkMate = false;
 	if (Console::startChess() == true) {
 		Board::getBoard()->initBoard();
 	} else {
-		Storage::loadGame();
+		Storage::loadGame(turnNumber);
 	}
 	Board::getBoard()->printBoard();
 	Console::printSpace();
-	turnNumber = 0;
-	checkMate = false;
 }
 
 void Chess::turn() {
@@ -52,23 +52,27 @@ void Chess::turn() {
 		Console::showSucces("Movimiento correcto");
 	}
 
+
 	Board::getBoard()->printBoard();
 	Console::printSpace();
-	Storage::saveGame();
-
 	turnNumber++;
+	Storage::saveGame(turnNumber);
 }
 
 bool Chess::end() {
 	checkMate = false;
 	if (lastEatenPiece != nullptr && lastEatenPiece->getFigure() == 'K') {
+		finish();
+		return true;
+	}
+	if (Console::outChess() == true) {
 		checkMate = true;
 	}
 	return checkMate;
 }
 
 void Chess::finish() {
-	if (lastEatenPiece->isBlack() == false) {
+	if (lastEatenPiece->isBlack() != false) {
 		std::cout << "Jugador Blanco ha ganado!" << std::endl;
 	} else {
 		std::cout << "Jugador Negro ha ganado!" << std::endl;
