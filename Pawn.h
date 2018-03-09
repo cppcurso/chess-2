@@ -12,16 +12,13 @@
  #include "Strategy/PawnStrategy.h"
  #include "Strategy/StandardStrategy.h"
  #include "Strategy/AttackStrategy.h"
-class Cell;
 
  class Pawn : public Piece {
  	PawnStrategy* strategy;
- 	Cell* from;
- 	Cell* to;
+
  public:
  	Pawn(bool b);
  	//~Pawn();
- 	void setCells(Cell* from, Cell* to);
  	bool validMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo);
 
 

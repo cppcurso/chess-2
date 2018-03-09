@@ -32,6 +32,11 @@ bool Piece::isBlack() {
 	return black;
 }
 
+void Piece::setCells(Cell* from, Cell* to){
+ this->from = from;
+ this->to = to;
+}
+
 void Piece::printPiece() const {
 	if (black == true) {
 		std::cout << (char)toupper(figure) << " ";

@@ -11,10 +11,7 @@
  	figure = 'P';
  	strategy = nullptr;
  }
- void Pawn::setCells(Cell* from, Cell* to){
- 	this->from = from;
- 	this->to = to;
- }
+ 
 
  bool Pawn::validMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo) {
 

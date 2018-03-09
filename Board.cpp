@@ -134,6 +134,11 @@ bool Board::canMoveTo(Cell* from, Cell* to) {
 		Console::showError("Casilla fuera del tablero");
 		return false;
 	}
+
+	if(from->getPiece()->getFigure() == 'P') {
+		from->getPiece()->setCells(from, to);
+	}
+	
 	bool move = from->getPiece()->validMove(from->getX(), from->getY(), to->getX(), to->getY());
 	if (move == false ) {
 		Console::showError("Movimiento no permitido por esta pieza");
