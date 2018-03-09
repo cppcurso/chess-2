@@ -8,11 +8,6 @@
 #include "Piece.h"
 
 Piece::Piece(bool b) : black(b), figure(' '){
-	if (b == true) {
-		color = "Black";
-	} else {
-		color = "White";
-	}
 }
 
 bool Piece::notMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo) {
@@ -29,16 +24,13 @@ char Piece::getFigure() const {
 	return figure;
 }
 
-bool Piece::isBlack() {
+bool Piece::getBlack() const {
 	return black;
 }
 
-
-void Piece::setCells(Cell* from, Cell* to){
-	this->from = from;
-	this->to = to;
+bool Piece::isBlack() {
+	return black;
 }
-
 
 void Piece::printPiece() const {
 	if (black == true) {
