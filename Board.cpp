@@ -148,13 +148,31 @@ bool Board::canMoveTo(Cell* from, Cell* to) {
 			if (from->getX() == to->getX() && !isRowFree(from, to)) return false;
 			if (abs(from->getX() - to->getX()) == abs(from->getY() - to->getY() && !isDiagonalFree(from, to))) return false;
 	}
+<<<<<<< HEAD
+	return true;
+}
+
+
+unsigned int Board::countPiece (){
+	unsigned int count = 0;
+
+	for (int i = 0; i < dimension; ++ i) {
+		for ( int j = 0;  j < dimension; ++ j) {
+			if (getCell(i, j)->getPiece() != nullptr) {
+				count ++;
+=======
 	if (to->isOccupied()) {
 			if (from->getPiece()->isBlack() == to->getPiece()->isBlack()) {
 				Console::showError("Casilla ocupada por pieza del mismo color");
 				return false;
+>>>>>>> 5d2eaf4724de89faf00702a8e2d014f1f194a67a
 			}
 	}
+<<<<<<< HEAD
+				return count;
+=======
 	return true;
+>>>>>>> 5d2eaf4724de89faf00702a8e2d014f1f194a67a
 }
 void Board::initBoard() {
 	Queen* Q = new Queen(true);
