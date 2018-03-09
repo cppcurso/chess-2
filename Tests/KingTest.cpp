@@ -5,7 +5,7 @@
  *      Author: usuario
  */
 
-#include "../ClassGame/King.h"
+#include "../King.h"
 #include <gtest/gtest.h>
 
 class KingTest : public ::testing::Test {

@@ -5,7 +5,7 @@
  *      Author: usuario
  */
 
-#include "../ClassGame/Horse.h"
+#include "../Horse.h"
 #include <gtest/gtest.h>
 
 class HorseTest : public ::testing::Test {

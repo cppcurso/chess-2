@@ -11,12 +11,16 @@
 #include <ctype.h>
 #include <cstdlib>
 
+
+
 class Piece {
 protected:
 	bool black;
 	char figure;
-	bool notMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo);
+
+
 public:
+	 static bool notMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo);
 	Piece(bool b);
 	//virtual ~Piece();
 	bool getBlack() const;

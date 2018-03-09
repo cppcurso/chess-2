@@ -9,7 +9,7 @@
 #define SRC_SAVEFILE_STORAGE_H_
 #include <iostream>
 #include <fstream>
-#include "../ClassGame/Board.h"
+#include "../Board.h"
 using namespace std;
 
 class Storage {

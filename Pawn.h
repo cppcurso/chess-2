@@ -12,9 +12,12 @@
  #include "Strategy/PawnStrategy.h"
  #include "Strategy/StandardStrategy.h"
  #include "Strategy/AttackStrategy.h"
+class Cell;
 
  class Pawn : public Piece {
  	PawnStrategy* strategy;
+ 	Cell* from;
+ 	Cell* to;
  public:
  	Pawn(bool b);
  	//~Pawn();

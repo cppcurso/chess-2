@@ -5,7 +5,7 @@
  *      Author: usuario
  */
 
-#include "../ClassGame/Tower.h"
+#include "../Tower.h"
 #include <gtest/gtest.h>
 
 class TowerTest : public ::testing::Test {

@@ -12,7 +12,7 @@
 class Bishop : public Piece {
 public:
 	Bishop(bool b);
-	~Bishop();
+	//~Bishop();
 	bool validMove(unsigned int xFrom, unsigned int yFrom, unsigned int xTo, unsigned int yTo);
 };
 
